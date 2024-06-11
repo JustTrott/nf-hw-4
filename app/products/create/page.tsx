@@ -13,7 +13,7 @@ export default function CreateProductPage() {
 	const [price, setPrice] = useState(0);
 	const [category, setCategory] = useState("");
 	const [description, setDescription] = useState("");
-	const [fileUrl, setFileUrl] = useState("");
+	const [fileUrl, setFileUrl] = useState<string[]>([]);
 	const [newProduct, setNewProduct] = useState(null);
 	const queryClient = useQueryClient();
 
@@ -23,7 +23,7 @@ export default function CreateProductPage() {
 			price,
 			category,
 			description,
-			image: fileUrl,
+			image: fileUrl[0],
 		};
 
 		try {
