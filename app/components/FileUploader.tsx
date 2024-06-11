@@ -49,7 +49,14 @@ export default function FileUploader({
 						}
 					},
 				})
-				.then((response) => response.data.location); // Extract location from response
+				.then((response) => {
+					setUploadProgress((prevProgress) => {
+						const newProgress = [...prevProgress];
+						newProgress[i] = 100;
+						return newProgress;
+					});
+					return response.data.location;
+				}); // Extract location from response
 			uploadPromises.push(promise);
 		}
 
